@@ -25,6 +25,8 @@ body {
 
 #serviceContainer {
   background-color: rgb(1, 101, 252);
+  padding: 10px;
+  border: 10px solid;
 }
 
 #tabContainer {
@@ -51,7 +53,7 @@ body {
   display:flex;
   justify-content: center;
   background-color: black;
-  flex-grow: 1;
+  flex-grow: 1.4;
   padding: 10px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
   border-radius: 4px;
@@ -69,6 +71,7 @@ body {
 
 .serviceCard {
   background-color:rgb(206, 66, 211);
+
 }
 
 .chart {

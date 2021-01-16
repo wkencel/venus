@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactDom, { render } from 'react-dom';
+import ReactDom, { render} from 'react-dom';
 import './style.scss';
 // import Main Display
 import MainDisplay from './containers/MainDisplay'
@@ -7,9 +7,9 @@ import MainDisplay from './containers/MainDisplay'
 import { ContextProvider } from './contexts/globalContext'
 import { myContext } from './contexts/globalContext'
 import Container from '@material-ui/core/Container';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-
-
+import { BrowserRouter  } from 'react-router-dom';
 
 const App: React.FC = () => {
 
@@ -36,6 +36,9 @@ const mainElement = document.createElement('div');
 // append div to root index.html
 document.body.appendChild(mainElement);
 // make sure we can use our state in App
-ReactDom.render(<App />, mainElement);
+ReactDom.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>, mainElement);
 
 

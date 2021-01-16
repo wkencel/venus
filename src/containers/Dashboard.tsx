@@ -10,7 +10,7 @@ import  { ServiceContainer } from './ServiceContainer';
 import { ChartContainer } from './ChartContainer';
 import { AggregateStats } from '../components/AggregateStats';
 import { myContext } from '../contexts/globalContext'
-
+import Box from '@material-ui/core/Box';
 export default function  Dashboard(): JSX.Element{
   const {urls, setUrls} = useContext(myContext)
   console.log(urls, "dashboard", setUrls)
@@ -23,7 +23,11 @@ export default function  Dashboard(): JSX.Element{
         <h1>This is the dashboard</h1>
         <h1>test{urls}</h1>                
         <AggregateStats />
+        <Box component="span" 
+              display="block"
+              m={2}>
         <ServiceContainer />
+        </Box>
         <ChartContainer />
         </div>
     )
