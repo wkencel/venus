@@ -7,20 +7,22 @@ import React, {createContext, useState, useContext, ReactNode, useEffect} from '
 
 // "interface" declares a completely "new" type
 // by "new type" we mean "an object composed of a few types"
-interface IState {
+type AppState {
   // text: string,
-  urls: any[],
+  urls: string[];
   // assign type to setUrls function
-  setUrls: () => void,
+  id: string;
+  processing: boolean;
 };
 
 
 // now that we have the types, declare the initial value
 // I've also declared the type as our "IState" interface
-const initialState: IState = {
+const initialState: AppState = {
   // text: '',
-  urls: ['hello'],
-  setUrls: () => {},
+  urls: [],
+  id: "",
+  processing: false
 };
 
 // instead of having the context be a single large object
@@ -30,16 +32,18 @@ const initialState: IState = {
 // that allows for global manipulation of the value. 
 
 // create a new context with initialState as our state and IState as our type
-export const myContext = React.createContext<IState>(initialState)
+// export const myContext = React.createContext<IState>(initialState)
 
 // return the provider part of the context we've created
 // make sure we have our props
 // declare the type as a JSX element
 // goal is to make sure the value gets passed down into components that are inside this context
-export const ContextProvider: React.FC = (props: any) => {
+// export const ContextProvider: React.FC = (props: any) => {
   
-  return <myContext.Provider value={initialState}>{props.children}</myContext.Provider>
+//   return <myContext.Provider value={initialState}>{props.children}</myContext.Provider>
 
   
 
-}
+// }
+
+export default initialState
