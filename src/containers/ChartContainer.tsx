@@ -7,7 +7,7 @@
 import React from 'react';
 import { CardDropDown } from '../components/CardDropDown'
 import { Chart } from '../components/Chart'
-import { ChartRender } from '../components/ChartRender'
+import { ChartRender, PieChartRender } from '../components/ChartRender'
 
 //import service card container
 //import chart container
@@ -18,6 +18,7 @@ function ChartContainer(): JSX.Element {
 			<h1>See Your Charts</h1>
 			<CardDropDown />
 			<ChartRender />
+			<PieChartRender />
 		</div>
 	)
 }
