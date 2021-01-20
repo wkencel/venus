@@ -27,10 +27,33 @@ function MainDisplay(): JSX.Element {
     <Router>
       <Switch>
         <Layout className="custom" style={{minHeight:"100vh", minWidth: "100vw"}} hasSider={true} >
-          <Sider theme="light">
+          <Sider theme="dark">
           <div className="logo" />
           <Title level={2}>VENUS</Title>
-          <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1" >
                 <Link to="/">
                   <div style={{width: "100%", height: "100%"}}>

@@ -18,15 +18,12 @@ import { ChartRender, PieChartRender } from '../components/charts/ChartRender'
 function ChartContainer(): JSX.Element {
 		<div id="chartContainer">
 			<h1>See Your Charts</h1>
-			<CardDropDown />
 			<ChartRender />
 			<PieChartRender />
 		</div>
   return (
    
     <div id="chartContainer">
-      <CardDropDown /> 
-        
         <Row gutter={[16, 16]}>
           <Col span={12}>
             <div className="graphHolder">
@@ -47,7 +44,7 @@ function ChartContainer(): JSX.Element {
           </Col>
           <Col span={12}>
             <div className="graphHolder">
-              <PieChart />
+			  <PieChartRender />
             </div>
           </Col>
         </Row>
