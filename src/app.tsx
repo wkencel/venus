@@ -20,11 +20,11 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <ContextProvider>
-        <Container>
+      {/* <ContextProvider>
+        <Container> */}
           <MainDisplay/>
-        </Container>
-      </ContextProvider>
+        {/* </Container>
+      </ContextProvider> */}
     </div>
   )
 }

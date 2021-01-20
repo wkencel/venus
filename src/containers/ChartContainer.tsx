@@ -9,7 +9,7 @@ import { AreaChart } from "../charts/AreaChart"
 import { CardDropDown } from "../components/CardDropDown";
 // import { TestChart } from "../charts/TestChart";
 import PieChart from "../charts/PieChart";
-import { Chart } from "../components/Chart";
+// import { Chart } from "../components/Chart";
 import { Row, Col } from 'antd'
 
 import { Chart } from '../components/charts/Chart'
