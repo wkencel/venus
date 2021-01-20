@@ -44,6 +44,10 @@ module.exports = {
         test: /\.(png|jpg|gif)$/i,
         use: 'url-loader'
     },
+    {
+      test: /\.mp3$/,
+      loader: 'file-loader'
+  }
     ],
   },
   devServer: {

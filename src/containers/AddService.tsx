@@ -10,6 +10,7 @@ import { appendErrors, useForm } from "react-hook-form"
 // //  import axios from 'axios'
 import { myContext } from '../contexts/globalContext'
 import gifFile from "../imgs/venusGif.gif"
+import venus from "./openingVenus.mp3"
 
 // you could model this to get multiple input fields depending how many form fields you want
 // later we can use a context in place of this
@@ -39,6 +40,9 @@ const onSubmit = handleSubmit((data) => {
     <div id="tabContainer">
       Add Service Here
       <div className="navBarForm">
+        <div id="audio">
+        <audio autoPlay controls src={venus}/>
+        </div>
         <form onSubmit={onSubmit}>
                <input ref={register({required: true})} id="input" name="input" placeholder="Add Endpoint" type="text" />
           <button type="submit">Submit</button>
