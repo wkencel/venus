@@ -4,14 +4,12 @@
 //  */
 
 import React, { useContext, useState, useEffect, ContextType } from 'react';
-import { appendErrors, useForm } from "react-hook-form"
-//  import Typography from '@material-ui/core/Typography';
-//  import Button from '@material-ui/core/Button';
-// //  import axios from 'axios'
-import { myContext } from '../contexts/globalContext'
-import gifFile from "../imgs/venusGif.gif"
+import { Button , Input } from 'antd';
+const { Search } = Input
+import { myContext } from '../contexts/globalContext';
+import { appendErrors, useForm } from 'react-hook-form';
 import venus from "./openingVenus.mp3"
-
+import gifFile from "../imgs/venusGif.gif"
 // you could model this to get multiple input fields depending how many form fields you want
 // later we can use a context in place of this
 
@@ -35,27 +33,15 @@ const onSubmit = handleSubmit((data) => {
 	const handlePress = () => {
 		setUrls(['new', 'state'])
 	}
-
+  const large: any = "medium"; 
   return(
     <div id="tabContainer">
-      Add Service Here
       <div className="navBarForm">
         <div id="audio">
         <audio autoPlay controls src={venus}/>
         </div>
-        <form onSubmit={onSubmit}>
-               <input ref={register({required: true})} id="input" name="input" placeholder="Add Endpoint" type="text" />
-          <button type="submit">Submit</button>
-        </form>
-        <br />
-        <br />
+      <Search placeholder="Add API Endpoint" allowClear enterButton="Submit" size="large" />
         <img id="venusGif" src={gifFile} alt="" width={'200px'} />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
     </div>
   ) 
