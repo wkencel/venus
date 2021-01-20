@@ -1,6 +1,6 @@
 
 import React, { useContext, useState } from 'react'
-import { myContext } from "../contexts/globalContext"
+import { myContext } from "../../contexts/globalContext"
 import Typography from 'antd/es/typography';
 // import { CheckCircleFilled } from '@ant-design/icons';
 const { Title } = Typography

@@ -6,8 +6,8 @@
 
 import React from 'react';
 import { CardDropDown } from '../components/CardDropDown'
-import { Chart } from '../components/Chart'
-import { ChartRender, PieChartRender } from '../components/ChartRender'
+import { Chart } from '../components/charts/Chart'
+import { ChartRender, PieChartRender } from '../components/charts/ChartRender'
 
 //import service card container
 //import chart container
