@@ -9,6 +9,7 @@ import { appendErrors, useForm } from "react-hook-form"
 //  import Button from '@material-ui/core/Button';
 // //  import axios from 'axios'
 import { myContext } from '../contexts/globalContext'
+import gifFile from "../imgs/venusGif.gif"
 
 // you could model this to get multiple input fields depending how many form fields you want
 // later we can use a context in place of this
@@ -42,6 +43,15 @@ const onSubmit = handleSubmit((data) => {
                <input ref={register({required: true})} id="input" name="input" placeholder="Add Endpoint" type="text" />
           <button type="submit">Submit</button>
         </form>
+        <br />
+        <br />
+        <img id="venusGif" src={gifFile} alt="" width={'200px'} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   ) 

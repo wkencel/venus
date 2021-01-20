@@ -39,7 +39,11 @@ module.exports = {
       }
       }
 ]
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: 'url-loader'
+    },
     ],
   },
   devServer: {
