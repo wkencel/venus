@@ -9,7 +9,7 @@ const frequency = (d:any) => d.frequency;
 
 const getLetterFrequencyColor = scaleOrdinal({
   domain: letters.map((l) => l.letter),
-  range: ["rgb(233,116,81)", "rgb(136,77,255)", "rgb(77,153,0)", "rgb(179,0,0)"]
+  range: ["#901919", "rgb(136,77,255)", "#0b6c38", "rgb(179,0,0)"]
 });
 
 const defaultMargin = { top: 20, right: 20, bottom: 20, left: 20 };
