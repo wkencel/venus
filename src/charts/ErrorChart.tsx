@@ -5,12 +5,12 @@ import { scaleOrdinal } from "@visx/scale";
 import { letterFrequency } from "@visx/mock-data";
 import { liveData, historicalContext} from '../contexts/historicalContext' ; 
 // const letterFrequency: any = liveData.historical
-const letters = letterFrequency.slice(0, 4);
-const frequency = (d:any) => d.frequency;
+const letters = liveData.historical.slice(0, 2);
+const frequency = (d:any) => d.latency;
 
 const getLetterFrequencyColor = scaleOrdinal({
-  domain: letters.map((l) => l.letter),
-  range: ["#901919", "rgb(136,77,255)", "#0b6c38", "rgb(179,0,0)"]
+  domain: letters.map((l) => l.uptime),
+  range: ["rgb(255, 153, 102)", "rgb(136,77,255)", "#0b6c38", "rgb(179,0,0)"]
 });
 
 const defaultMargin = { top: 20, right: 20, bottom: 20, left: 80 };
@@ -34,7 +34,7 @@ export default function ErrorChart({
   const top = centerY + margin.top;
   const left = centerX + margin.left;
   const pieSortValues = (a: any, b: any) => b - a;
-
+console.log('let freq ', letterFrequency, 'live data freq ', liveData.historical)
   return (
     <svg width={width} height={height}>
       <Group top={top} left={left}>
@@ -46,28 +46,25 @@ export default function ErrorChart({
         >
           {(pie) => {
             return pie.arcs.map((arc, index) => {
-              const { letter } = arc.data;
+              const { uptime } = arc.data;
               const [centroidX, centroidY] = pie.path.centroid(arc);
               const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
               const arcPath = pie.path(arc);
-              const arcFill = getLetterFrequencyColor(letter);
+              const arcFill = getLetterFrequencyColor(uptime);
               return (
-                <g key={`arc-${letter}-${index}`}>
+                <g key={`arc-${uptime}-${index}`}>
                   <path d={arcPath} fill={arcFill} />
                   {hasSpaceForLabel && (
                     <text
-                      x={centroidX}
+                      x={centroidX-45}
                       y={centroidY}
                       dy=".33em"
                       fill="#ffffff"
-                      fontSize={22}
-                      textAnchor="middle"
+                      fontSize={18}
+                      textAnchor="left"
                       pointerEvents="none"
                     >
-                      {arc.data.letter +
-                        ";  " +
-                        Math.round(100 * arc.data.frequency) +
-                        "% of total"}
+                      {arc.data.latency+ "% latency"}
                     </text>
                   )}
                 </g>

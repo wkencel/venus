@@ -15,13 +15,13 @@ type dynamicState = {
 export const liveData: dynamicState= {
   historical: [
 		{
-		uptime: '40 days',
+		uptime: 'uptime1',
 		latency: 20,
 		load: 'string1', 
 		error: 'string1', 
     },
     {
-		uptime: '30 days',
+		uptime: 'uptime2',
 		latency: 10,
 		load: 'string', 
 		error: 'string', 
