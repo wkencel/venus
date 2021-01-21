@@ -11,14 +11,14 @@ import { CardDropDown } from "../components/CardDropDown";
 import PieChart from "../charts/PieChart";
 import { Chart } from "../components/Chart";
 import { Row, Col } from 'antd'
-
+import ErrorChart from '../charts/ErrorChart'
 
 function ChartContainer(): JSX.Element {
   return (
    
     <div id="chartContainer">
       <CardDropDown /> 
-        
+        <ErrorChart />
         <Row gutter={[16, 16]}>
           <Col span={12}>
             <div className="graphHolder">
