@@ -8,7 +8,7 @@
     "dev:react": "NODE_ENV=development webpack-dev-server --config webpack.react.config.js --mode development",
     "build:electron": "NODE_ENV=production webpack --config webpack.electron.config.js --mode production",
     "build:react": "NODE_ENV=production webpack --config webpack.react.config.js --mode production",
-    "build": "npm run build:electron && npm run build:react",
+    "build": "npm run build:react && npm run build:electron",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
@@ -59,6 +59,7 @@
     "@visx/scale": "^1.4.0",
     "@visx/shape": "^1.4.0",
     "antd": "^4.10.3",
+    "babel-plugin-import": "^1.13.3",
     "contentful": "^8.1.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

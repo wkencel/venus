@@ -9,10 +9,12 @@ import { AreaChart } from "../charts/AreaChart"
 import { CardDropDown } from "../components/CardDropDown";
 // import { TestChart } from "../charts/TestChart";
 import PieChart from "../charts/PieChart";
-import { Chart } from "../components/Chart";
-import { Row, Col } from 'antd'
 import ErrorChart from '../charts/ErrorChart'
 import  ParentSize from "@visx/responsive/lib/components/ParentSize";
+import Row from 'antd/es/row'
+import Col from 'antd/es/col'
+import Card from 'antd/es/card'
+import Divider from "antd/es/divider";
 
 function ChartContainer(): JSX.Element {
   return (
@@ -23,29 +25,29 @@ function ChartContainer(): JSX.Element {
         {({ width, height }) => <ErrorChart width={800} height={400} />}
       </ParentSize> */}
         <Row gutter={[16, 16]}>
+      <Divider></Divider>
+        <Row gutter={[32,32]}>
           <Col span={12}>
-            <div className="graphHolder">
+          <Card bordered={true} hoverable={true} style={{width: "500px"}}>
               <LineGraph />
-            </div>
+            </Card>
           </Col>
           <Col span={12}>
-            <div className="graphHolder" >
+          <Card bordered={true} hoverable={true} style={{width: "500px"}}>
               <AreaChart />
-            </div>
+            </Card>
           </Col>
         </Row>
-        <Row gutter={[16, 16]}>
-        <Col span={12}>
-            <div className="graphHolder">
+        <Row gutter={[32,32]}>
+          <Col span={12}>
+            <Card bordered={true} hoverable={true} style={{width: "500px"}}>
               <LineGraph />
-            </div>
+            </Card>
           </Col>
           <Col span={12}>
-            <div className="graphHolder">
-			<ParentSize>
-        	  {({ width, height }) => <ErrorChart width={350} height={350} />}
-      		</ParentSize>
-            </div>
+            <Card bordered={true} hoverable={true} style={{width: "500px"}}>
+              <PieChart />
+            </Card>
           </Col>
         </Row>
     </div>
