@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from 'react' ;    
 import Pie  from '@ant-design/charts/es/pie' ;    
-
+import { liveData, historicalContext} from '../contexts/historicalContext' ; 
 
 function PieChart(): JSX.Element {      
   // const { registerTheme } = G2 ;   
@@ -8,7 +8,7 @@ function PieChart(): JSX.Element {
   //   colors10 : [ '#FACDAA' , '#F4A49E' , '#EE7B91' , '#E85285' , '#BE408C' , '#BE408C' ] ,      
   //   colors20 : [ '#FACDAA' , '#F4A49E' , '#EE7B91' , '#E85285' , '#BE408C' , '#BE408C' , '#942D93' ] ,       
   // } ) ;
-  const data:any = [ 
+  const data1:any = [ 
     {
       type : 'Classification One' , 
       value : 27 , 
@@ -34,14 +34,17 @@ function PieChart(): JSX.Element {
       value : 5 , 
     } ,
   ] ;
+
+  const data: any = liveData.historical
+
   const config = { 
     appendPadding : 10 , 
     data ,
-    angleField : 'value' , 
-    colorField : 'type' , 
+    angleField : 'latency' , 
+    colorField : 'uptime' , 
     radius : 0.8 , 
     label : { } , 
-    interactions : [ { type : 'element-active' } ] ,    
+    interactions : [ { uptime: 'element-active' } ] ,    
     theme : 'custom-theme' , 
   } ;
   return < Pie { ... config } /> ;   

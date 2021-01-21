@@ -48,8 +48,11 @@ function ChartContainer(): JSX.Element {
           </Col>
           <Col span={12}>
             <Card bordered={true} hoverable={true} style={{width: "500px"}}>
-              <PieChart />
-            </Card>
+              {/* <PieChart /> */}
+                  <ParentSize>
+        {({ width, height }) => <ErrorChart width={380} height={380} />}
+      </ParentSize>
+			</Card>
           </Col>
         </Row>
 		</Row>

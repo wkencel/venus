@@ -3,7 +3,8 @@ import { Pie } from "@visx/shape";
 import { Group } from "@visx/group";
 import { scaleOrdinal } from "@visx/scale";
 import { letterFrequency } from "@visx/mock-data";
-
+import { liveData, historicalContext} from '../contexts/historicalContext' ; 
+// const letterFrequency: any = liveData.historical
 const letters = letterFrequency.slice(0, 4);
 const frequency = (d:any) => d.frequency;
 
@@ -12,7 +13,7 @@ const getLetterFrequencyColor = scaleOrdinal({
   range: ["#901919", "rgb(136,77,255)", "#0b6c38", "rgb(179,0,0)"]
 });
 
-const defaultMargin = { top: 20, right: 20, bottom: 20, left: 20 };
+const defaultMargin = { top: 20, right: 20, bottom: 20, left: 80 };
 
 export type PieProps = {
   width: number;
