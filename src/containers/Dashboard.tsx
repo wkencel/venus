@@ -5,14 +5,13 @@
  */
 
  import React, {useContext, useEffect} from 'react';
-//  import TabContainer from './TabContainer'
 import { AggregateStats } from '../components/AggregateStats';
 import { initialState, myContext, AppState } from '../contexts/globalContext';
 import Divider from 'antd/es/divider';
 import Table from 'antd/es/table';
 import Tag  from 'antd/es/tag';
-import { dynamicContext } from '../contexts/dynamicContext';
-
+import  { DynamicProvider, dynamicContext, servicesData}  from '../contexts/dynamicContext'
+// import { histData, historicalContext} from '../contexts/historicalContext' ; 
 
 function  Dashboard(): JSX.Element{
 
@@ -74,78 +73,15 @@ function  Dashboard(): JSX.Element{
     }
   
   const dataSource: any = [];
-  const source: any = [ 
-    {
-      service: 'Google Weather API',
-      status: 'good',
-      uptime: '98%',      
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'Surfline API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'Stripe API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'Surfline API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'Unemployment API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'AWS API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'Codesmith API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-    },
-    {
-      service: 'Plaid API',
-      status: 'good',
-      uptime: "98%",
-      latency: '300ms',
-      load: '1000hpm',
-      error: '2%'
-      
-    },
-  ];
-  
+  // get the array of services from our context
+  const source:any = servicesData.services
+// loop through our array and push to dataSource for table
+// how do we declare a unique key, do we need to declare it on a component?
   for (let i = 0; i < source.length; i++) {
-    source[i].key = i;
+    source[i].key=i;
     dataSource.push(source[i])
   }
+
   const columns: any = [
     {
       title: 'Service',
@@ -191,7 +127,11 @@ function  Dashboard(): JSX.Element{
       <div id="dashboard">          
         <AggregateStats />
         <Divider></Divider>
-        <Table columns={columns} dataSource={dataSource} pagination={false} expandable={{expandedRowRender}} style={{width: "100%"}} />
+        <DynamicProvider>
+          <div>
+          <Table columns={columns} dataSource={dataSource} pagination={false} expandable={{expandedRowRender}} style={{width: "100%"}} />
+          </div>
+        </DynamicProvider>
       </div>
   )
  };

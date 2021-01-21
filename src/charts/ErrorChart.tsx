@@ -3,11 +3,14 @@ import { Pie } from "@visx/shape";
 import { Group } from "@visx/group";
 import { scaleOrdinal } from "@visx/scale";
 import { letterFrequency } from "@visx/mock-data";
-import { liveData, historicalContext} from '../contexts/historicalContext' ; 
+import { histData, historicalContext} from '../contexts/historicalContext' ; 
 // const letterFrequency: any = liveData.historical
-const letters = liveData.historical.slice(0, 2);
-const frequency = (d:any) => d.latency;
 
+// take the portion of the context array that we'd like to put on the pie chart
+const letters = histData.historical.slice(0, 2);
+// declare a const that returns the parameter with our key "latency" attached
+const frequency = (d:any) => d.latency;
+// make sure to include uptime
 const getLetterFrequencyColor = scaleOrdinal({
   domain: letters.map((l) => l.uptime),
   range: ["rgb(255, 153, 102)", "rgb(136,77,255)", "#0b6c38", "rgb(179,0,0)"]
@@ -34,7 +37,7 @@ export default function ErrorChart({
   const top = centerY + margin.top;
   const left = centerX + margin.left;
   const pieSortValues = (a: any, b: any) => b - a;
-console.log('let freq ', letterFrequency, 'live data freq ', liveData.historical)
+console.log('let freq ', letterFrequency, 'live data freq ', histData.historical)
   return (
     <svg width={width} height={height}>
       <Group top={top} left={left}>
@@ -50,6 +53,7 @@ console.log('let freq ', letterFrequency, 'live data freq ', liveData.historical
               const [centroidX, centroidY] = pie.path.centroid(arc);
               const hasSpaceForLabel = arc.endAngle - arc.startAngle >= 0.1;
               const arcPath = pie.path(arc);
+              // make sure to include uptime
               const arcFill = getLetterFrequencyColor(uptime);
               return (
                 <g key={`arc-${uptime}-${index}`}>
@@ -64,6 +68,7 @@ console.log('let freq ', letterFrequency, 'live data freq ', liveData.historical
                       textAnchor="left"
                       pointerEvents="none"
                     >
+                       {/* make sure to indluce latency */}
                       {arc.data.latency+ "% latency"}
                     </text>
                   )}
