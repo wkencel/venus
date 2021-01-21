@@ -12,13 +12,16 @@ import PieChart from "../charts/PieChart";
 import { Chart } from "../components/Chart";
 import { Row, Col } from 'antd'
 import ErrorChart from '../charts/ErrorChart'
+import  ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 function ChartContainer(): JSX.Element {
   return (
    
     <div id="chartContainer">
       <CardDropDown /> 
-        <ErrorChart />
+      {/* <ParentSize>
+        {({ width, height }) => <ErrorChart width={800} height={400} />}
+      </ParentSize> */}
         <Row gutter={[16, 16]}>
           <Col span={12}>
             <div className="graphHolder">
@@ -39,7 +42,9 @@ function ChartContainer(): JSX.Element {
           </Col>
           <Col span={12}>
             <div className="graphHolder">
-              <PieChart />
+			<ParentSize>
+        	  {({ width, height }) => <ErrorChart width={350} height={350} />}
+      		</ParentSize>
             </div>
           </Col>
         </Row>
