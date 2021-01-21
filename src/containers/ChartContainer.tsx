@@ -50,10 +50,11 @@ function ChartContainer(): JSX.Element {
             </Card>
           </Col>
         </Row>
+		</Row>
     </div>
 
-// onChange={onChange} >> add for stat level sortability. 
+
   );
 }
-
+/* // onChange={onChange} >> add for stat level sortability.  */
 export { ChartContainer };
