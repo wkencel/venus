@@ -15,11 +15,13 @@ import Row from 'antd/es/row'
 import Col from 'antd/es/col'
 import Card from 'antd/es/card'
 import Divider from "antd/es/divider";
+import { HistoricalProvider } from '../contexts/historicalContext'
 
 function ChartContainer(): JSX.Element {
   return (
    
     <div id="chartContainer">
+	  <HistoricalProvider>
       <CardDropDown /> 
       {/* <ParentSize>
         {({ width, height }) => <ErrorChart width={800} height={400} />}
@@ -51,6 +53,7 @@ function ChartContainer(): JSX.Element {
           </Col>
         </Row>
 		</Row>
+	  </HistoricalProvider>
     </div>
 
 
